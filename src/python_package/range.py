@@ -1,7 +1,7 @@
 import math
 from math import factorial
 import numpy as np
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 RADIUS = 6378100
 
@@ -47,8 +47,6 @@ def main():
     #holds ve_v0 and tol_alpha constant to show range of alpha values and their max and min angle ranges
     list_max=[]
     list_min=[]
-    x_axis=alpha
-    #y_axis=both max and min of angles
     ve_v0=2.0
     tol_alpha=0.04
     alpha=0
@@ -61,6 +59,11 @@ def main():
 
     print ("ve_v0 and tol_alpha constant test")
     print (list_max, list_min)
+    plt.plot(alpha,list_min)
+    plt.plot(alpha,list_max)
+    plt.xlabel('Alpha (m)')
+    plt.ylabel('Angles (degrees)')
+    plt.show()
 
     #hold alpha and tol_alpha constant, shows range of ve_v0 and max and min angle values
     
@@ -78,6 +81,11 @@ def main():
         ve_v0+=0.05
     print("alpha and tol_alpha constant test")
     print(list_max, list_min)
+    plt.plot(ve_v0,list_min)
+    plt.plot(ve_v0,list_max)
+    plt.xlabel('Alpha (m)')
+    plt.ylabel('Angles (degrees)')
+    plt.show()
 
 if __name__=="__main__":
     main()
