@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 
 RADIUS = 6378100
 
-def get_input():
-    """Description of function.
+"""def get_input():
+    Description of function.
     Parameters
     
     ----------
@@ -15,11 +15,11 @@ def get_input():
     alpha: Ratio of Earth's radius as an altitude (float)
     tol_alpha: Tolerance for alpha (float)
     -------
-    """
+    
     alpha=float(input("Enter the maximum altitude: "))
     tol_alpha=float(input("Enter tolerance for maximum altitude: "))
     ve_v0=float(input("Enter ratio of escape velocity to terminal velocity: "))  
-    return(alpha,ve_v0,tol_alpha)
+    return(alpha,ve_v0,tol_alpha)"""
 
 def arcsin(x):
     """Description of function.
@@ -69,25 +69,25 @@ def launch_angle_range(ve_v0,alpha,tol_alpha):
     angle_lower=launch_angle(ve_v0,lower)
     angle_upper=launch_angle(ve_v0,upper)
     phi_range=np.array([angle_lower,angle_upper])
-    print(phi_range)
+    #print(phi_range)
     return (phi_range)
 
 def main():
-    alpha,ve_v0,tol_alpha=get_input()
-    phi_range=launch_angle_range(ve_v0,alpha,tol_alpha)
+    #alpha,ve_v0,tol_alpha=get_input()
+    #phi_range=launch_angle_range(ve_v0,alpha,tol_alpha)
     #holds ve_v0 and tol_alpha constant to show range of alpha values and their max and min angle ranges
     list_alphamax=[]
     list_alphamin=[]
     #values solved for from boundary cases
-    alpha_values=np.arange(0,0.333333,0.01)
+    alpha_values=np.arange(0,0.333333,0.05)
 
     for i in alpha_values:
         phi_range=launch_angle_range(2.0,i,0.04)
         list_alphamax.append(phi_range[0])
         list_alphamin.append(phi_range[1])
 
-    #print ("ve_v0 and tol_alpha constant test")
-    #print (list_alphamax, list_alphamin)
+    print ("ve_v0 and tol_alpha constant test")
+    print (list_alphamax, list_alphamin)
     plt.plot(alpha_values,list_alphamax,label="Maximum Angle")
     plt.plot(alpha_values,list_alphamin,label="Minimum Angle")
     plt.title("Range of Altitudes and Respective Max and Min Angles")
@@ -107,8 +107,8 @@ def main():
         list_alphamax.append(phi_range[0])
         list_alphamin.append(phi_range[1])
 
-    #print ("alpha and tol_alpha constant test")
-    #print (list_alphamax, list_alphamin)
+    print ("alpha and tol_alpha constant test")
+    print (list_alphamax, list_alphamin)
     plt.plot(ve_v0_values,list_alphamax,label="Maximum Angle")
     plt.plot(ve_v0_values,list_alphamin,label="Minimum Angle")
     plt.title("Range of Velocity Ratios and Respective Max and Min Angles")
