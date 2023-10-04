@@ -3,24 +3,6 @@ from math import factorial
 import numpy as np
 import matplotlib.pyplot as plt
 
-RADIUS = 6378100
-
-"""def get_input():
-    Description of function.
-    Parameters
-    
-    ----------
-    Returns
-    ve_v0: Ratio of escape velocity to terminal velocity (float)
-    alpha: Ratio of Earth's radius as an altitude (float)
-    tol_alpha: Tolerance for alpha (float)
-    -------
-    
-    alpha=float(input("Enter the maximum altitude: "))
-    tol_alpha=float(input("Enter tolerance for maximum altitude: "))
-    ve_v0=float(input("Enter ratio of escape velocity to terminal velocity: "))  
-    return(alpha,ve_v0,tol_alpha)"""
-
 def arcsin(x):
     """Description of function.
     Parameters
@@ -73,8 +55,6 @@ def launch_angle_range(ve_v0,alpha,tol_alpha):
     return (phi_range)
 
 def main():
-    #alpha,ve_v0,tol_alpha=get_input()
-    #phi_range=launch_angle_range(ve_v0,alpha,tol_alpha)
     #holds ve_v0 and tol_alpha constant to show range of alpha values and their max and min angle ranges
     list_alphamax=[]
     list_alphamin=[]
@@ -86,14 +66,12 @@ def main():
         list_alphamax.append(phi_range[0])
         list_alphamin.append(phi_range[1])
 
-    print ("ve_v0 and tol_alpha constant test")
-    print (list_alphamax, list_alphamin)
     plt.plot(alpha_values,list_alphamax,label="Maximum Angle")
     plt.plot(alpha_values,list_alphamin,label="Minimum Angle")
     plt.title("Range of Altitudes and Respective Max and Min Angles")
     plt.xlabel('Alpha (m)')
     plt.ylabel('Angles (degrees)')
-    plt.savefig('plot_1.png')
+    plt.savefig('../../figures/plot_1.png')
     plt.show()
 
     #hold alpha and tol_alpha constant, shows range of ve_v0 and max and min angle values
@@ -106,15 +84,13 @@ def main():
         phi_range=launch_angle_range(i,0.25,0.04)
         list_alphamax.append(phi_range[0])
         list_alphamin.append(phi_range[1])
-
-    print ("alpha and tol_alpha constant test")
-    print (list_alphamax, list_alphamin)
+        
     plt.plot(ve_v0_values,list_alphamax,label="Maximum Angle")
     plt.plot(ve_v0_values,list_alphamin,label="Minimum Angle")
     plt.title("Range of Velocity Ratios and Respective Max and Min Angles")
     plt.xlabel('Ratio of Escape Velocity to Terminal Velocity')
     plt.ylabel('Angles (degrees)')
-    plt.savefig('plot_2.png')
+    plt.savefig('../../figures/plot_2.png')
     plt.show()
 
 if __name__=="__main__":
