@@ -71,6 +71,7 @@ def main():
     plt.title("Range of Altitudes and Respective Max and Min Angles")
     plt.xlabel('Alpha (m)')
     plt.ylabel('Angles (degrees)')
+    plt.legend()
     plt.savefig('../../figures/plot_1.png')
     plt.show()
 
@@ -90,6 +91,7 @@ def main():
     plt.title("Range of Velocity Ratios and Respective Max and Min Angles")
     plt.xlabel('Ratio of Escape Velocity to Terminal Velocity')
     plt.ylabel('Angles (degrees)')
+    plt.legend()
     plt.savefig('../../figures/plot_2.png')
     plt.show()
 
