@@ -51,7 +51,6 @@ def launch_angle_range(ve_v0,alpha,tol_alpha):
     angle_lower=launch_angle(ve_v0,lower)
     angle_upper=launch_angle(ve_v0,upper)
     phi_range=np.array([angle_lower,angle_upper])
-    #print(phi_range)
     return (phi_range)
 
 def main():
@@ -62,6 +61,7 @@ def main():
     alpha_values=np.arange(0,0.333333,0.05)
 
     for i in alpha_values:
+        #ve_v0=2.0 and tol_alpha=0.04
         phi_range=launch_angle_range(2.0,i,0.04)
         list_alphamax.append(phi_range[0])
         list_alphamin.append(phi_range[1])
@@ -79,8 +79,8 @@ def main():
     list_alphamax=[]
     list_alphamin=[]
     #values solved for from boundary cases
-    ve_v0_values=np.arange(1.3,2.2,0.1)
-
+    ve_v0_values=np.arange(1.34,2.2,0.1)
+    #alpha=0.25 and tol_alpha=0.04
     for i in ve_v0_values:
         phi_range=launch_angle_range(i,0.25,0.04)
         list_alphamax.append(phi_range[0])
